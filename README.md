@@ -2,6 +2,8 @@
 
 **[🔴 Live Demo Available Here](https://cjohnlin.github.io/0225_Lecture_1/)**
 
+![Portfolio Screenshot](screenshot.png)
+
 A sleek, single-page personal portfolio website built with HTML, CSS, and vanilla JavaScript. 
 
 The aesthetic is inspired by premium, modern dark-mode themes (like the Knuford template), featuring glassmorphism elements, dynamic typography, and a live-updating clock widget.
