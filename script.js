@@ -1,82 +1,91 @@
-/**
- * Typewriter Effect matching Knuford's dynamic subtitle
- */
+// Typewriter Effect
 const words = ["Developer.", "Designer.", "Freelancer.", "Creator."];
 let wordIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
-let typewriterElement = null;
 
 function type() {
-    typewriterElement = document.getElementById("typewriter-text");
-    if(!typewriterElement) return;
+    const el = document.getElementById("typewriter-text");
+    if (!el) return;
 
     const currentWord = words[wordIndex];
-    
+
     if (isDeleting) {
-        typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
+        el.textContent = currentWord.substring(0, charIndex - 1);
         charIndex--;
     } else {
-        typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
+        el.textContent = currentWord.substring(0, charIndex + 1);
         charIndex++;
     }
 
-    // Variable typing speeds for realism
-    let typeSpeed = isDeleting ? 40 : 120 - Math.random() * 50;
+    let speed = isDeleting ? 40 : 120 - Math.random() * 50;
 
     if (!isDeleting && charIndex === currentWord.length) {
-        // Pause at the end of the word
-        typeSpeed = 2500;
+        speed = 2500;
         isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         wordIndex = (wordIndex + 1) % words.length;
-        typeSpeed = 600; // Pause before typing next word
+        speed = 600;
     }
 
-    setTimeout(type, typeSpeed);
+    setTimeout(type, speed);
 }
 
-/**
- * Real-time Clock Implementation
- */
+// Real-time Clock
 function updateTime() {
     const now = new Date();
-    
-    // Format Time
-    let h = now.getHours();
-    let m = now.getMinutes();
-    let s = now.getSeconds();
-    
-    h = h < 10 ? '0' + h : h;
-    m = m < 10 ? '0' + m : m;
-    s = s < 10 ? '0' + s : s;
-    
-    document.getElementById("hours").textContent = h;
-    document.getElementById("minutes").textContent = m;
-    document.getElementById("seconds").textContent = s;
+    const pad = n => n < 10 ? '0' + n : String(n);
 
-    // Format Date
-    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    
-    document.getElementById("day").textContent = days[now.getDay()];
-    
-    // Helper for ordinal suffix (st, nd, rd, th)
-    const getOrdinalNum = (n) => {
-        return n + (n > 0 ? ['th', 'st', 'nd', 'rd'][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10] : '');
+    document.getElementById("hours").textContent   = pad(now.getHours());
+    document.getElementById("minutes").textContent = pad(now.getMinutes());
+    document.getElementById("seconds").textContent = pad(now.getSeconds());
+
+    const days   = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+    const getOrdinal = n => {
+        const s = ["th","st","nd","rd"];
+        const v = n % 100;
+        return n + (s[(v - 20) % 10] || s[v] || s[0]);
     };
-    
-    document.getElementById("date").textContent = `${months[now.getMonth()]} ${getOrdinalNum(now.getDate())}, ${now.getFullYear()}`;
+
+    document.getElementById("day").textContent  = days[now.getDay()];
+    document.getElementById("date").textContent = `${months[now.getMonth()]} ${getOrdinal(now.getDate())}, ${now.getFullYear()}`;
 }
 
-// Initialize and setup intervals when DOM is ready
+// Scroll Reveal
+function revealOnScroll() {
+    const windowHeight = window.innerHeight;
+    document.querySelectorAll('.reveal').forEach(el => {
+        if (el.getBoundingClientRect().top < windowHeight - 60) {
+            el.classList.add('visible');
+        }
+    });
+}
+
+// Nav opacity on scroll
+function handleNavScroll() {
+    const nav = document.getElementById('nav');
+    if (!nav) return;
+    if (window.scrollY > 10) {
+        nav.style.background = 'rgba(255,255,255,0.92)';
+    } else {
+        nav.style.background = 'rgba(255,255,255,0.72)';
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     type();
     updateTime();
-    // Start the clock at the next precise second for better accuracy
+
+    // Align clock tick to exact second boundary
     setTimeout(() => {
         updateTime();
         setInterval(updateTime, 1000);
     }, 1000 - new Date().getMilliseconds());
+
+    revealOnScroll();
+    window.addEventListener('scroll', revealOnScroll, { passive: true });
+    window.addEventListener('scroll', handleNavScroll, { passive: true });
 });

@@ -5,52 +5,173 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="CJohn Lin - Personal Portfolio">
-    <title>CJohn Lin | Personal Portfolio</title>
-    <!-- Modern Sans-serif Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <!-- Link to external CSS -->
+    <title>CJohn Lin</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Inspired by 'Knuford' Template Layout -->
-    <nav>
-        <a href="#" class="logo">CJohn<span>Lin</span></a>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#home" class="nav-logo">CJohn Lin</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <!-- Background Animated Shapes -->
-    <div class="shape shape-1"></div>
-    <div class="shape shape-2"></div>
-
+    <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="greeting">Welcome to my world</div>
-            <h1 class="title">Hi, I'm CJohn Lin</h1>
+        <div class="hero-bg">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
 
-            <div class="typewriter">
-                I am a passionate <span id="typewriter-text"></span>
-            </div>
+        <div class="hero-content">
+            <p class="hero-eyebrow">Welcome</p>
+            <h1 class="hero-title">Hi, I'm<br>CJohn Lin.</h1>
+            <p class="hero-subtitle">I am a passionate <span id="typewriter-text"></span></p>
 
             <div class="clock-widget">
-                <div class="time-box">
-                    <span id="hours">00</span><span class="colon">:</span><span id="minutes">00</span><span
-                        class="colon">:</span><span id="seconds">00</span>
+                <div class="time-display">
+                    <span id="hours">00</span><span class="sep">:</span><span id="minutes">00</span><span class="sep">:</span><span id="seconds">00</span>
                 </div>
-                <div class="date-box">
-                    <div class="date-day" id="day">Loading</div>
-                    <div class="date-full" id="date">--</div>
+                <div class="date-display">
+                    <span id="day">Loading</span> &middot; <span id="date">--</span>
+                </div>
+            </div>
+
+            <a href="#about" class="cta-button">Learn more ↓</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <p class="section-eyebrow reveal">About me</p>
+            <h2 class="section-title reveal">Crafting digital<br>experiences.</h2>
+            <div class="about-grid">
+                <div class="about-card reveal">
+                    <div class="about-icon">🎓</div>
+                    <h3>Education</h3>
+                    <p>Passionate learner with a focus on technology and design, constantly pushing boundaries.</p>
+                </div>
+                <div class="about-card reveal">
+                    <div class="about-icon">💡</div>
+                    <h3>Innovation</h3>
+                    <p>I believe in creating solutions that are not just functional, but elegant and intuitive.</p>
+                </div>
+                <div class="about-card reveal">
+                    <div class="about-icon">🌏</div>
+                    <h3>Vision</h3>
+                    <p>Driven by a desire to make technology accessible and impactful for everyone.</p>
                 </div>
             </div>
         </div>
-
-        <a href="#home" class="scroll-down">
-            <span>Scroll</span>
-            <div class="mouse"></div>
-        </a>
     </section>
 
-    <!-- Link to external JS -->
+    <!-- Skills Section -->
+    <section class="section section-alt" id="skills">
+        <div class="container">
+            <p class="section-eyebrow reveal">Expertise</p>
+            <h2 class="section-title reveal">What I do best.</h2>
+            <div class="skills-grid">
+                <div class="skill-card reveal">
+                    <div class="skill-icon">⚡</div>
+                    <h3>Development</h3>
+                    <p>Building fast, responsive web applications with modern frameworks and best practices.</p>
+                    <ul class="skill-tags">
+                        <li>HTML / CSS</li>
+                        <li>JavaScript</li>
+                        <li>React</li>
+                        <li>Node.js</li>
+                    </ul>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-icon">🎨</div>
+                    <h3>Design</h3>
+                    <p>Creating beautiful interfaces that balance aesthetics with usability and accessibility.</p>
+                    <ul class="skill-tags">
+                        <li>UI / UX</li>
+                        <li>Figma</li>
+                        <li>Prototyping</li>
+                        <li>Motion Design</li>
+                    </ul>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-icon">🚀</div>
+                    <h3>Deployment</h3>
+                    <p>Shipping production-ready applications with robust infrastructure and CI/CD pipelines.</p>
+                    <ul class="skill-tags">
+                        <li>Git / GitHub</li>
+                        <li>Docker</li>
+                        <li>Cloud Services</li>
+                        <li>DevOps</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <p class="section-eyebrow reveal">Work</p>
+            <h2 class="section-title reveal">Featured projects.</h2>
+            <div class="projects-grid">
+                <div class="project-card reveal project-featured">
+                    <div class="project-label">Latest</div>
+                    <h3>Personal Portfolio</h3>
+                    <p>A clean, Apple-inspired personal website showcasing skills and projects with smooth animations.</p>
+                    <div class="project-meta">
+                        <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="project-label">Project</div>
+                    <h3>Web App</h3>
+                    <p>A modern web application built with a focus on performance and user experience.</p>
+                    <div class="project-meta">
+                        <span>React</span><span>Node.js</span>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="project-label">Project</div>
+                    <h3>Design System</h3>
+                    <p>A comprehensive design system with reusable components and clear documentation.</p>
+                    <div class="project-meta">
+                        <span>Figma</span><span>Storybook</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section section-alt" id="contact">
+        <div class="container container-center">
+            <p class="section-eyebrow reveal">Get in touch</p>
+            <h2 class="section-title reveal">Let's work<br>together.</h2>
+            <p class="contact-desc reveal">Have a project in mind? I'd love to hear about it. Send me a message and let's create something amazing.</p>
+            <a href="mailto:hello@cjohnlin.com" class="contact-btn reveal">Say Hello →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <p class="footer-brand">CJohn Lin</p>
+                <p class="footer-copy">&copy; 2025 CJohn Lin. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 
