@@ -1,40 +1,34 @@
-# CJohn Lin - Personal Portfolio
+# CJohn Lin — Personal Portfolio
 
-**[🔴 Live Demo Available Here](https://cjohnlin.github.io/0225_Lecture_1/)**
+**[Live Demo](https://cjohnlin.github.io/0225_Lecture_1/)**
 
 ![Portfolio Screenshot](screenshot.png)
 
-A sleek, single-page personal portfolio website built with HTML, CSS, and vanilla JavaScript. 
+A clean, Apple-inspired single-page personal portfolio built with HTML, CSS, and vanilla JavaScript — no frameworks, no build steps.
 
-The aesthetic is inspired by premium, modern dark-mode themes (like the Knuford template), featuring glassmorphism elements, dynamic typography, and a live-updating clock widget.
+## Features
 
-## 🌟 Features
+- **Apple Design Language** — Light theme, SF Pro font stack, frosted glass navigation bar, and generous whitespace throughout.
+- **Smooth Scroll Animations** — Sections and cards fade in with staggered reveal animations as you scroll.
+- **Dynamic Typewriter** — Hero subtitle cycles through roles (Developer, Designer, Freelancer, Creator) with a realistic typing effect.
+- **Live Clock Widget** — Glassmorphism card displaying local time to the second alongside today's date.
+- **Multi-section Layout** — Hero, About, Skills, Projects, and Contact sections in a single scrollable page.
+- **Responsive** — Fluid typography via `clamp()` and a mobile-first grid that collapses to single-column on small screens.
 
-*   **Responsive Web Design (RWD):** Fluid typography scaling (`clamp()`) and expanded media queries ensure the layout looks perfect on all devices—from large desktop monitors to tablets and mobile phones.
-*   **Modern Aesthetics:** Deep dark theme with glowing neon-teal (`#66fcf1`) accents and floating abstract background shapes for a premium feel.
-*   **Dynamic Typewriter Effect:** A continuously animating subtitle that cycles through different roles (Developer, Designer, Freelancer, Creator).
-*   **Live Clock Widget:** A highly-styled glassmorphic container displaying the exact local time down to the second, alongside today's date and day of the week.
-*   **Modular Codebase:** Cleanly separated files structure (`index.html`, `style.css`, and `script.js`) for maintainability.
+## Tech Stack
 
-## 🛠️ Technologies Used
+| Layer | Details |
+|---|---|
+| Markup | HTML5, semantic structure |
+| Styles | CSS3 — custom properties, Flexbox, Grid, `@keyframes`, `backdrop-filter` |
+| Scripts | Vanilla JavaScript — typewriter, real-time clock, IntersectionObserver-style scroll reveal |
 
-*   **HTML5:** Semantic page structure
-*   **CSS3:** Custom properties (variables), Flexbox, CSS Grid, animations (`@keyframes`), and responsive media queries.
-*   **Vanilla JavaScript:** DOM manipulation for the typewriter effect and real-time clock functionality. No external libraries required.
-*   **Typography:** [Outfit](https://fonts.google.com/specimen/Outfit) from Google Fonts.
-
-## 🚀 Getting Started
-
-Simply clone the repository and open `index.html` in your web browser of choice. There are no build steps or dependencies required!
+## Getting Started
 
 ```bash
 git clone https://github.com/CJohnLin/0225_Lecture_1.git
+cd 0225_Lecture_1
+open index.html   # or just double-click the file
 ```
 
-## 📱 Responsiveness
-
-The site automatically adapts to:
-*   Large Displays / 4k Monitors
-*   Laptops and Desktop screens (< 992px)
-*   Tablets (< 768px)
-*   Mobile Phones (< 480px, including specific landscape/short screen fallbacks)
+No dependencies. No build step. Open and go.
